@@ -23,16 +23,14 @@ public class AggregatorProcessor<T extends Aggregator> {
 		return "AggregatorProcessor [aggregator=" + aggregator + ", file=" + file + "]";
 	}
 
-	public double runAggregator(int i) throws IOException {	
+	public double runAggregator(int colIndex) throws IOException {	
 		StockFileReader sFR = new StockFileReader(file);
 		List<String> lines = sFR.readFileData();
-		System.out.println("lines" + lines.get(i));
 		ArrayList<String> list = new ArrayList<>();
-		i--;
-		System.out.println("size " + list);
+		colIndex--;
 		for(String line: lines) {
 			String[] values = line.split(",");
-			double dval = Double.parseDouble(values[i]);
+			double dval = Double.parseDouble(values[colIndex]);
 			aggregator.add(dval);
 		}
 		
