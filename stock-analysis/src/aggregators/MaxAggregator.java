@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MaxAggregator extends Aggregator{
-	
-	public MaxAggregator(List<Double> numbers) {
-		this.numbers = new ArrayList<Double>();
-	}
 
+	public MaxAggregator() {
+		super();
+	}
 	@Override
 	public double calculate() {
 		double max = numbers.get(0);
@@ -24,5 +23,4 @@ public class MaxAggregator extends Aggregator{
 	public List<Double> getValues() {
 		return numbers;
 	}
-	
 }
