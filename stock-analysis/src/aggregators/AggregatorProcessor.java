@@ -9,18 +9,18 @@ import fileprocessors.StockFileReader;
 
 public class AggregatorProcessor<T extends Aggregator> {
 	
-	T app;
+	T aggregator;
 	String file;
 	
-	public AggregatorProcessor(T app, String file) {
+	public AggregatorProcessor(T aggregator, String file) {
 		super();
-		this.app = app;
+		this.aggregator = aggregator;
 		this.file = file;
 	}
 
 	@Override
 	public String toString() {
-		return "AggregatorProcessor [app=" + app + ", file=" + file + "]";
+		return "AggregatorProcessor [aggregator=" + aggregator + ", file=" + file + "]";
 	}
 
 	public double runAggregator(int i) throws IOException {	
@@ -33,10 +33,10 @@ public class AggregatorProcessor<T extends Aggregator> {
 		for(String line: lines) {
 			String[] values = line.split(",");
 			double dval = Double.parseDouble(values[i]);
-			app.add(dval);
+			aggregator.add(dval);
 		}
 		
-		double values = app.calculate()
+		double values = aggregator.calculate()
 ;		return  values;
 	}
 }
