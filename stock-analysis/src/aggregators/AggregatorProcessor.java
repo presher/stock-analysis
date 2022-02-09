@@ -34,7 +34,7 @@ public class AggregatorProcessor<T extends Aggregator> {
 			aggregator.add(dval);
 		}
 		
-		double values = aggregator.calculate()
-;		return  values;
+		double values = aggregator.calculate();
+		return  values;
 	}
 }
