@@ -1,10 +1,7 @@
 package aggregators;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-
 import fileprocessors.StockFileReader;
 
 public class AggregatorProcessor<T extends Aggregator> {
@@ -26,7 +23,6 @@ public class AggregatorProcessor<T extends Aggregator> {
 	public double runAggregator(int colIndex) throws IOException {	
 		StockFileReader sFR = new StockFileReader(file);
 		List<String> lines = sFR.readFileData();
-		ArrayList<String> list = new ArrayList<>();
 		colIndex--;
 		for(String line: lines) {
 			String[] values = line.split(",");
