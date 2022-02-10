@@ -31,6 +31,6 @@ public class AggregatorProcessor<T extends Aggregator> {
 		}
 		
 		double values = aggregator.calculate();
-		return  values;
+		return values;
 	}
 }
